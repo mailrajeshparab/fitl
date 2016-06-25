@@ -24,3 +24,5 @@ Route::get('welcome', function () {
 // });
 
 Route::get('about','PageController@about');
+
+Route::get('questions/{question}','QuestionController@show');
