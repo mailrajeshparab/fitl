@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Question;
 
 class QuestionController extends Controller
 {
@@ -46,11 +47,36 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show1($id)
     {
-        echo "$id";
-        return view('questions/show');
+        $data = array();  // parameter passing info from controller to view
+        $data['id'] = $id;
+        return view('questions/show1', $data); 
+    }
 
+/**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show2($id)
+    {
+        // Now Hook up the Model and Controller
+        $data = array();
+        //$question = Question::find($id);
+        //to handle invalid id values
+        $question = Question::findOrFail($id);
+        //testing-1
+        // echo '<pre>';
+        // print_r($question);
+        // echo '</pre>';
+        //testing-2
+        // echo $question->title;
+        // exit;
+        $data['object'] = $question;
+
+        return view('questions/show2', $data); 
     }
 
     /**
