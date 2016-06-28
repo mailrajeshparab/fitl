@@ -17,7 +17,14 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        $questions = Question::all();
+        //test print the data
+        // echo '<pre>';
+        // print_r($questions);
+        // echo '</pre>';
+        $data = array();
+        $data['objects'] = $questions;
+        return view('questions.index', $data);
     }
 
     /**
@@ -41,18 +48,6 @@ class QuestionController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show1($id)
-    {
-        $data = array();  // parameter passing info from controller to view
-        $data['id'] = $id;
-        return view('questions/show1', $data); 
-    }
 
 /**
      * Display the specified resource.
@@ -60,23 +55,17 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show2($id)
+    public function show($id)
     {
         // Now Hook up the Model and Controller
         $data = array();
-        //$question = Question::find($id);
-        //to handle invalid id values
         $question = Question::findOrFail($id);
-        //testing-1
-        // echo '<pre>';
-        // print_r($question);
-        // echo '</pre>';
-        //testing-2
+        //testing
         // echo $question->title;
         // exit;
         $data['object'] = $question;
 
-        return view('questions/show2', $data); 
+        return view('questions/show', $data); 
     }
 
     /**

@@ -19,16 +19,8 @@ Route::get('welcome', function () {
     return view('welcome');
 });
 
-// Route::get('about', function () {
-//     return view('pages/about');
-// });
-
 Route::get('about','PageController@about');
-
 Route::get('contact','PageController@contact');
 
-// parameter passing info from controller to view
-// Route::get('questions/{question}','QuestionController@show1'); 
-
-
-Route::get('questions/{question}','QuestionController@show2');
+Route::get('questions/{question}','QuestionController@show');
+Route::get('questions','QuestionController@index');
