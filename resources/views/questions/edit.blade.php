@@ -14,10 +14,14 @@
 	  'method' => 'put'
 	]) !!}
 
-  @include('questions.partials.object_form')
+	<!-- we use the same Partials-View-Form for both Create & Edit Functions -->
+  	@include('questions.partials.object_form')
 
   <button type="submit" class="btn btn-success">Update the Question!</button>
 
 {!! Form::close() !!}
+
+<!-- display the delete button from a partial view -->
+@include('questions.partials.delete_object')
 
 @endsection

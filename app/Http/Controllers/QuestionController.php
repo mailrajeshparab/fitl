@@ -153,6 +153,10 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $question = Question::findOrFail($id);
+        $question->delete();
+        return redirect()
+            ->action('QuestionController@index')
+            ->with('message',"<div class='alert alert-info'>The Question was deleted.</div>");
     }
 }
