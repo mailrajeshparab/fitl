@@ -24,17 +24,24 @@ Route::get('contact','PageController@contact');
 
 //---QuestionsController------------------------------------------------//
 
-
-Route::get('questions/create','QuestionController@create');
-Route::post('questions/store','QuestionController@store');
-
-Route::get('questions','QuestionController@index');
-Route::get('questions/{question}','QuestionController@show');
+Route::delete('questions/{question}','QuestionController@destroy');
 
 Route::get('questions/{question}/edit','QuestionController@edit');
 Route::put('questions/{question}','QuestionController@update');
 
-Route::delete('questions/{question}','QuestionController@destroy');
+Route::post('questions/store','QuestionController@store');
+Route::get('questions/create','QuestionController@create');
+
+Route::get('questions/{question}','QuestionController@show');
+Route::get('questions','QuestionController@index');
+
+
+
+
+
+
+
+
 
 //---C---Create a Page with a Form using ( get-create-action ) + ( post-store-action )
 //---R---Index Page to display multiple objects ( get-index-action )
