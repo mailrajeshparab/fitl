@@ -2,10 +2,12 @@
 namespace App;
 
 // use Illuminate\Database\Eloquent\Model;
+//Add validataion capabilities to this model use Esensi model class
 use \Esensi\Model\Model;
 
 class Question extends Model 
 {
+	// define the arrary of validation rules 
 	protected $rules = [
 		'title' => ['required'],
 		'description' => ['required'],

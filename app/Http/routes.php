@@ -22,7 +22,7 @@ Route::get('welcome', function () {
 Route::get('about','PageController@about');
 Route::get('contact','PageController@contact');
 
-//---QuestionsController------------------------------------------------//
+//---Routes Associated with this QuestionsController--------------------//
 
 Route::delete('questions/{question}','QuestionController@destroy');
 
@@ -35,10 +35,10 @@ Route::get('questions/create','QuestionController@create');
 Route::get('questions/{question}','QuestionController@show');
 Route::get('questions','QuestionController@index');
 
+// ---------------------------------------------------------------------//
 
-
-
-
+Route::resource('questions.comments', 'QuestionCommentController', ['only'=>['store','update','destroy']] );
+// ---------------------------------------------------------------------//
 
 
 
